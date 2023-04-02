@@ -1,0 +1,43 @@
+<div class="displayTable" style="text-align: center; padding-top: 3%;">
+  <div class="displayTableCell">
+    <div class="authBlock">
+      <h2 >Login</h2>
+      <div class="formGroup">
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input type="text" matInput class="formControl" #userName required/>
+        </mat-form-field>
+      </div>
+
+      <div class="formGroup">
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput class="formControl" #userPassword required>
+        </mat-form-field>
+      </div>
+
+      <!-- Calling SignIn Api from AuthService -->
+      <div class="formGroup">
+        <button mat-raised-button class="btn btnPrimary" color="primary" (click)="authService.SignIn(userName.value, userPassword.value)">Login</button>
+
+      </div>
+
+      <!-- Calling GoogleAuth Api from AuthService -->
+      <div class="formGroup">
+        <button mat-button color="primary" style="margin-top: 2%;margin-bottom: 2%" (click)="authService.AuthWithGoogle()">
+          <img src="https://img.icons8.com/color/30/000000/google-logo.png"/> Login With Google
+        </button>
+      </div>
+
+      <div class="forgotPassword" style="margin-bottom: 1%">
+        <a routerLink="/passwordreset">Forgot Password?</a>
+      </div>
+    </div>
+
+    <div class="redirectToLogin">
+      <span class="redirect">Don't have an account?</span>
+      <a class="redirect" routerLink="/signup"> Sign Up</a>
+    </div>
+
+  </div>
+</div>

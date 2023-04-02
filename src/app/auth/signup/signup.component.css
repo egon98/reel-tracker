@@ -1,0 +1,24 @@
+html,body,app-root {
+  min-height: 100%;
+  height: auto;
+  margin: 0;
+  overflow-y:hidden;
+}
+
+:host {
+  height: 100%;
+}
+
+input {
+  font-size: 15px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+

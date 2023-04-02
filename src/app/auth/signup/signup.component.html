@@ -1,0 +1,41 @@
+<div class="displayTable" style="text-align: center; padding-top: 3%;">
+  <div class="displayTableCell">
+
+    <div class="authBlock">
+      <h2>Sign Up</h2>
+
+      <div class="formGroup col s12 m6">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput class="formControl" #userEmail required>
+        </mat-form-field>
+      </div>
+
+      <div class="formGroup">
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput class="formControl" #userPwd required>
+        </mat-form-field>
+      </div>
+
+
+      <div class="formGroup">
+        <button mat-raised-button style="margin-bottom: 2%" color="primary" (click)="authService.SignUp(userEmail.value, userPwd.value)">
+          Sign Up
+        </button>
+      </div>
+
+      <!-- Continue with Google -->
+      <div class="google_login">
+        <asl-google-signin-button fxLayout fxLayoutAlign="center center" style="margin-left: auto;margin-right: auto" type="standard" size="large" (click)="authService.AuthWithGoogle()"></asl-google-signin-button>
+      </div>
+
+
+
+    <div class="redirectToLogin" style="margin-top: 5%">
+      <span>Already have an account? <a class="redirect" routerLink="/login">Log In</a></span>
+    </div>
+  </div>
+
+  </div>
+</div>
