@@ -1,0 +1,13 @@
+html,body {
+  min-height: 100vh;
+  height: auto;
+  margin: 0;
+}
+
+mat-sidenav-container {
+  height:100vh;
+}
+
+.bg {
+  background-image: url(https://images.cloudflareapps.com/EJzyxsCCQOeRa71a83tX_background-2.jpeg);
+}
