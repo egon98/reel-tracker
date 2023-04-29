@@ -1,4 +1,4 @@
-import {Inject, Injectable, NgZone} from '@angular/core';
+import {Injectable, NgZone} from '@angular/core';
 import { Subject } from "rxjs";
 import { Router } from "@angular/router";
 
@@ -8,7 +8,6 @@ import { AngularFireAuth } from "@angular/fire/compat/auth";
 
 import firebase from "firebase/compat/app";
 import auth = firebase.auth;
-import {user} from "@angular/fire/auth";
 import {SocialAuthService} from "@abacritt/angularx-social-login";
 
 @Injectable({
@@ -61,6 +60,8 @@ export class AuthService {
       .then((result) => {
         this.SendVerificationEmail();
         this.SetUserData(result.user);
+        this.LogOut();
+        console.log(this.userData);
       }).catch((error) => {
         window.alert(error.message);
       })
@@ -126,7 +127,7 @@ AuthWithGoogle() {
   }
 
   LogOut() {
-    this.socialAuthService.signOut().then(() => {
+   this.socialAuthService.signOut().then(() => {
       this.socialUserData = null;
     })
     return this.angularFireAuth.signOut().then(() => {

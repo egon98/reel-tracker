@@ -5,12 +5,18 @@ import {WelcomeComponent} from "./welcome/welcome.component";
 import {SignupComponent} from "./auth/signup/signup.component";
 import {LoginComponent} from "./auth/login/login.component";
 import {HomeComponent} from "./home/home.component";
+import {EmailverificationComponent} from "./emailverification/emailverification.component";
+import {PasswordresetComponent} from "./passwordreset/passwordreset.component";
+import {ProfileComponent} from "./profile/profile.component";
 
 const routes: Routes = [
   {path: '', component:WelcomeComponent},
   {path: 'home', component:HomeComponent},
   {path: 'signup', component:SignupComponent},
-  {path: 'login', component:LoginComponent}
+  {path: 'login', component:LoginComponent},
+  {path: 'emailverification', component: EmailverificationComponent},
+  {path: 'passwordreset', component: PasswordresetComponent},
+  {path: 'profile', component: ProfileComponent}
 ];
 
 @NgModule({

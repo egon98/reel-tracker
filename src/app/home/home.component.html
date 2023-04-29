@@ -1,1 +1,28 @@
-<p>home works!</p>
+<div fxLayout fxLayoutAlign="center center" style="margin-bottom: 10px;margin-top:10px">
+  <input
+    style="width: 400px"
+    placeholder="Search for location"
+    autocapitalize="off"
+    type="text"
+    class="form-control"
+    #search
+  />
+</div>
+
+<div fxLayout="column">
+
+<google-map id="map"
+            fxLayout
+            fxFlex
+            fxLayoutAlign="center center"
+            height="600px"
+            width="90%"
+            [center]="center"
+            [zoom]="zoom"
+            (mapClick)="addMarker($event)"
+            (mapRightclick)="removeMarker()"
+            (mapMousemove)="onMove($event)">
+  <map-marker *ngFor="let markerPos of markerPositions | async" [position]="markerPos" [id]="this.markerId"></map-marker>
+  <map-info-window></map-info-window>
+</google-map>
+</div>

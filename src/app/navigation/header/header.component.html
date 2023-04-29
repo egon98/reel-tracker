@@ -11,15 +11,14 @@
     <a routerLink="/home">Reel Tracker</a>
   </div>
   <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
-
     <ul fxFlex fxLayoutAlign="end" fxLayoutGap="10px" class="navigation-items" style="margin-right: 3%">
-      <li *ngIf="!authService.userData as user">
+      <li *ngIf="!authService.userData && !authService.socialUserData">
         <a routerLink="/signup">Sign Up</a>
       </li>
-      <li *ngIf="!authService.userData as user">
+      <li *ngIf="!authService.userData && !authService.socialUserData">
         <a routerLink="/login">Login</a>
       </li>
-      <li *ngIf="authService.userData || authService.socialUserData !== null">
+      <li *ngIf="authService.userData || authService.socialUserData">
         <a routerLink="/patients" style="margin-right: 5%">Patients</a>
         <a routerLink="/addpatient" style="margin-right: 5%">Add Patient</a>
         <a routerLink="/profile" style="margin-right: 5%">Profile</a>

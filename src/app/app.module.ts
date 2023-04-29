@@ -42,6 +42,12 @@ import {MatTableModule} from "@angular/material/table";
 import {MatDialogModule} from "@angular/material/dialog";
 import { HomeComponent } from './home/home.component';
 import {HttpClientModule} from "@angular/common/http";
+import {GoogleMapsModule} from "@angular/google-maps";
+import {MDBBootstrapModule} from "angular-bootstrap-md";
+import { DialogComponent } from './dialog/dialog.component';
+import { EmailverificationComponent } from './emailverification/emailverification.component';
+import { PasswordresetComponent } from './passwordreset/passwordreset.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +57,11 @@ import {HttpClientModule} from "@angular/common/http";
     LoginComponent,
     SignupComponent,
     WelcomeComponent,
-    HomeComponent
+    HomeComponent,
+    DialogComponent,
+    EmailverificationComponent,
+    PasswordresetComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +90,9 @@ import {HttpClientModule} from "@angular/common/http";
     MatDialogModule,
     SocialLoginModule,
     GoogleSigninButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    GoogleMapsModule,
+    MDBBootstrapModule.forRoot()
   ],
   exports: [
     MatSidenavModule,
@@ -99,7 +111,7 @@ import {HttpClientModule} from "@angular/common/http";
     MatTooltipModule,
     MatTableModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   providers: [AuthService, SocialAuthService,
     {

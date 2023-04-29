@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import {Subscription} from "rxjs";
-import {SocialAuthService, SocialUser} from "@abacritt/angularx-social-login";
+import {SocialAuthService} from "@abacritt/angularx-social-login";
 import {AuthService} from "../../auth/auth.service";
 
 @Component({
@@ -20,11 +20,11 @@ export class HeaderComponent implements OnInit,OnDestroy {
     this.authSub = this.authService.authChange.subscribe(authStatus => {
       this.isAuth = authStatus;
     });
+    console.log(this.socialUser)
   }
 
   logout() {
     this.authService.LogOut();
-    //this.socialAuthService.signOut();
   }
 
   onToggleSidenav() {

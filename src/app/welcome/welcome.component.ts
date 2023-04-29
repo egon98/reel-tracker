@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent {
+  images = [
+    'https://wallpaperaccess.com/full/138728.jpg',
+    'https://wallpaperaccess.com/full/138728.jpg'
+  ]
 
 }

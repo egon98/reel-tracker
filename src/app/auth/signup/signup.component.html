@@ -18,7 +18,6 @@
         </mat-form-field>
       </div>
 
-
       <div class="formGroup">
         <button mat-raised-button style="margin-bottom: 2%" color="primary" (click)="authService.SignUp(userEmail.value, userPwd.value)">
           Sign Up
@@ -30,10 +29,8 @@
         <asl-google-signin-button fxLayout fxLayoutAlign="center center" style="margin-left: auto;margin-right: auto" type="standard" size="large" (click)="authService.AuthWithGoogle()"></asl-google-signin-button>
       </div>
 
-
-
-    <div class="redirectToLogin" style="margin-top: 5%">
-      <span>Already have an account? <a class="redirect" routerLink="/login">Log In</a></span>
+    <div class="redirectToLogin" style="margin-top: 2%">
+      <span>Already have an account? <a class="redirect"  routerLink="/login">Log In</a></span>
     </div>
   </div>
 
