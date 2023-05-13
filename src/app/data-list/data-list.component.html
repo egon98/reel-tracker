@@ -1,0 +1,57 @@
+<div class="image-gallery">
+  <img *ngFor="let imageUrl of images | async" [src]="imageUrl" alt="Image">
+</div>
+
+<mat-form-field class="mt-5 ml-5">
+  <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Filter">
+</mat-form-field>
+<mat-table #table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)">
+
+
+  <ng-container matColumnDef="fishing_spot">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Fishing spot</mat-header-cell>
+    <mat-cell *matCellDef="let data">
+      {{data.fishing_spot}}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="fish_weight">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Fish weight</mat-header-cell>
+    <mat-cell *matCellDef="let data">
+      {{data.fish_weight}}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="bait_name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Bait name</mat-header-cell>
+    <mat-cell *matCellDef="let data">
+      {{data.bait_name}}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+    <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+    <mat-cell *matCellDef="let valami">
+      {{valami.date}}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="editBtn">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let data">
+      {{data.editBtn}}
+      <button (click)="dialogOpen(data, $event)" style="margin-right: 8%" mat-raised-button color="primary">Edit</button>
+      <button (click)="deleteRowData(data, $event)" mat-raised-button color="warn">Delete</button>
+    </mat-cell>
+  </ng-container>
+
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;">
+
+  </mat-row>
+</mat-table>
+
+
+<mat-paginator [length]="100" [pageSize]="5" [pageSizeOptions]="[5, 10, 25]" aria-label="Select page">
+</mat-paginator>
