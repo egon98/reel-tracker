@@ -1,35 +1,115 @@
-<mdb-carousel animation="slide">
+<div class="container-fluid p-0">
+<mdb-carousel animation="slide" class="p-0 m-0">
   <mdb-carousel-item>
     <img
-      src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp"
-      class="d-block w-100"
+      src="assets/image1.jpg"
+      class="d-block w-100 h-50"
       alt="..."
     />
     <div class="carousel-caption d-none d-md-block">
-      <h5>First slide label</h5>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+
     </div>
   </mdb-carousel-item>
   <mdb-carousel-item>
     <img
-      src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp"
+      src="assets/image2.jpg"
       class="d-block w-100"
       alt="..."
     />
     <div class="carousel-caption d-none d-md-block">
-      <h5>Second slide label</h5>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
     </div>
   </mdb-carousel-item>
   <mdb-carousel-item>
     <img
-      src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp"
+      src="assets/image3.jpg"
       class="d-block w-100"
       alt="..."
     />
     <div class="carousel-caption d-none d-md-block">
-      <h5>Third slide label</h5>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+
     </div>
   </mdb-carousel-item>
 </mdb-carousel>
+
+
+
+<div class="card-deck w-100">
+  <!-- Card -->
+  <mdb-card>
+    <div class="view overlay waves-light" mdbWavesEffect>
+      <!-- Card img -->
+      <mdb-card-img src="assets/card-image1.png" alt="Card image cap"></mdb-card-img>
+      <a>
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+    <!--Card content-->
+    <mdb-card-body>
+      <!--Title-->
+      <mdb-card-title>
+        <h4>Map</h4>
+      </mdb-card-title>
+
+      <!--Text-->
+      <mdb-card-text>
+        A map where users can add new points and record
+        the name of the fishing spot, the quantity of the caught fish,
+        the bait used, date, and even upload pictures
+      </mdb-card-text>
+
+      <a href="/login" mdbBtn color="primary" mdbWavesEffect>Login</a>
+    </mdb-card-body>
+  </mdb-card>
+
+  <!-- Card -->
+  <mdb-card>
+    <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+      <!-- Card img -->
+      <mdb-card-img src="assets/card-image3.jpg" alt="Card image cap"></mdb-card-img>
+      <a>
+        <div class="mask"></div>
+      </a>
+    </div>
+    <!--Card content-->
+    <mdb-card-body>
+      <!--Title-->
+      <mdb-card-title>
+        <h4>Listing data</h4>
+      </mdb-card-title>
+
+      <!--Text-->
+      <mdb-card-text>
+        The listing of data is located on a separate page where the corresponding data for each location is displayed. These data can be modified and deleted as well.
+      </mdb-card-text>
+
+      <a href="#" mdbBtn color="primary" mdbWavesEffect>Button</a>
+    </mdb-card-body>
+  </mdb-card>
+
+  <!-- Card -->
+  <mdb-card>
+    <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+      <!-- Card img -->
+      <mdb-card-img src="assets/card-image2.jpg" alt="Card image cap"></mdb-card-img>
+      <a>
+        <div class="mask"></div>
+      </a>
+    </div>
+    <!--Card content-->
+    <mdb-card-body>
+      <!--Title-->
+      <mdb-card-title>
+        <h4>Statistics</h4>
+      </mdb-card-title>
+
+      <!--Text-->
+      <mdb-card-text>
+        Displaying various statistics through diagrams including fishing spot, weight of caught fish, bait name, date etc.
+      </mdb-card-text>
+
+      <a href="#" mdbBtn color="primary" mdbWavesEffect>Button</a>
+    </mdb-card-body>
+  </mdb-card>
+</div>
+</div>

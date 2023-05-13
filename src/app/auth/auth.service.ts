@@ -1,6 +1,6 @@
-import {Injectable, NgZone} from '@angular/core';
+import {HostListener, Injectable, NgZone} from '@angular/core';
 import { Subject } from "rxjs";
-import { Router } from "@angular/router";
+import {GuardsCheckEnd, Router} from "@angular/router";
 
 import { User } from "./user.model";
 import { AngularFirestore, AngularFirestoreDocument } from "@angular/fire/compat/firestore";
@@ -24,16 +24,18 @@ export class AuthService {
     public angularFireAuth: AngularFireAuth,
     private router: Router,
     public ngZone: NgZone,
-    public socialAuthService: SocialAuthService
+    public socialAuthService: SocialAuthService,
   ) {
     this.angularFireAuth.authState.subscribe(user => {
       if (user) {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
+        sessionStorage.setItem('userId', JSON.stringify(this.userData.userId));
         JSON.parse(localStorage.getItem('user') || '{}');
       } else {
         localStorage.setItem('user', '');
-        JSON.parse(localStorage.getItem('user') || '{}')
+        JSON.parse(localStorage.getItem('user') || '{}');
+        //this.router.navigate(['login']);
       }
       socialAuthService.authState.subscribe((socialUser) => {
         if(socialUser) {
@@ -61,7 +63,6 @@ export class AuthService {
         this.SendVerificationEmail();
         this.SetUserData(result.user);
         this.LogOut();
-        console.log(this.userData);
       }).catch((error) => {
         window.alert(error.message);
       })
@@ -96,10 +97,6 @@ AuthWithGoogle() {
     return this.AuthProvider(new auth.GoogleAuthProvider());
   }
 
-  AuthWithFacebook() {
-    return this.AuthProvider(new auth.FacebookAuthProvider());
-  }
-
   AuthProvider(provider:any) {
     return this.angularFireAuth.signInWithPopup(provider)
       .then((result) => {
@@ -107,6 +104,7 @@ AuthWithGoogle() {
           this.router.navigate(['home']);
         })
         this.SetUserData(result.user);
+        sessionStorage.setItem('asd', <string>result.user?.uid);
       }).catch((error) => {
         window.alert(error);
       })
@@ -119,20 +117,21 @@ AuthWithGoogle() {
       userId: user.uid,
       emailVerified: user.emailVerified
     }
-    console.log(userData);
+    sessionStorage.setItem('userId', userData.userId);
     return userRef.set(userData, {
       merge: true
     })
-
   }
 
   LogOut() {
    this.socialAuthService.signOut().then(() => {
       this.socialUserData = null;
+      sessionStorage.removeItem('userId');
     })
     return this.angularFireAuth.signOut().then(() => {
       this.userData = null;
       localStorage.removeItem('user');
+      sessionStorage.removeItem('userId');
       this.router.navigate(['signup']);
     })
 

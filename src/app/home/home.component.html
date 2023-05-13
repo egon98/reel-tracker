@@ -10,7 +10,6 @@
 </div>
 
 <div fxLayout="column">
-
 <google-map id="map"
             fxLayout
             fxFlex
@@ -19,10 +18,14 @@
             width="90%"
             [center]="center"
             [zoom]="zoom"
-            (mapClick)="addMarker($event)"
+            (mapClick)="dialogOpen($event)"
             (mapRightclick)="removeMarker()"
             (mapMousemove)="onMove($event)">
-  <map-marker *ngFor="let markerPos of markerPositions | async" [position]="markerPos" [id]="this.markerId"></map-marker>
-  <map-info-window></map-info-window>
+  <map-marker #marker="mapMarker" *ngFor="let markerPos of markerPositions | async; let i = index" (mapClick)="openInfoWindow(marker, infoWindow)" [position]="markerPos" [id]="this.markerId">
+    <map-info-window #infoWindow="mapInfoWindow">asdasdsdasdas</map-info-window>
+  </map-marker>
+
 </google-map>
 </div>
+
+

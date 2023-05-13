@@ -18,9 +18,10 @@
       <li *ngIf="!authService.userData && !authService.socialUserData">
         <a routerLink="/login">Login</a>
       </li>
-      <li *ngIf="authService.userData || authService.socialUserData">
-        <a routerLink="/patients" style="margin-right: 5%">Patients</a>
-        <a routerLink="/addpatient" style="margin-right: 5%">Add Patient</a>
+      <li *ngIf="authService.userData || authService.socialUserData" class="mr-5">
+        <a routerLink="/home" style="margin-right: 5%">Map</a>
+        <a routerLink="/data-list" style="margin-right: 5%">Data List</a>
+        <a routerLink="/statistics" style="margin-right: 5%">Statistics</a>
         <a routerLink="/profile" style="margin-right: 5%">Profile</a>
         <a (click)="logout()" routerLink="/">Logout</a>
       </li>

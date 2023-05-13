@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit{
     this.socialAuthService.authState.subscribe((user) => {
       this.user = user;
       this.loggedIn = (user != null);
-      console.log(this.user);
+      sessionStorage.setItem('id', this.user.userId);
       if(this.loggedIn) {
         this.ngZone.run(() => this.router.navigate(['/home']))
       }

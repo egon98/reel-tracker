@@ -15,7 +15,7 @@ import {
   SocialAuthServiceConfig,
   SocialLoginModule
 } from "@abacritt/angularx-social-login";
-import {MAT_DATE_LOCALE} from "@angular/material/core";
+import {MAT_DATE_LOCALE, MatNativeDateModule} from "@angular/material/core";
 import { AppRoutingModule } from './app-routing.module';
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
@@ -48,6 +48,13 @@ import { DialogComponent } from './dialog/dialog.component';
 import { EmailverificationComponent } from './emailverification/emailverification.component';
 import { PasswordresetComponent } from './passwordreset/passwordreset.component';
 import { ProfileComponent } from './profile/profile.component';
+import {A11yModule} from "@angular/cdk/a11y";
+import { DataListComponent } from './data-list/data-list.component';
+import { StatisticsComponent } from './statistics/statistics.component';
+import {MatSortModule} from "@angular/material/sort";
+import { DialogOnDeleteRowComponent } from './dialog-on-delete-row/dialog-on-delete-row.component';
+import {MatPaginatorModule} from "@angular/material/paginator";
+
 
 @NgModule({
   declarations: [
@@ -61,7 +68,10 @@ import { ProfileComponent } from './profile/profile.component';
     DialogComponent,
     EmailverificationComponent,
     PasswordresetComponent,
-    ProfileComponent
+    ProfileComponent,
+    DataListComponent,
+    StatisticsComponent,
+    DialogOnDeleteRowComponent
   ],
   imports: [
     BrowserModule,
@@ -85,14 +95,18 @@ import { ProfileComponent } from './profile/profile.component';
     MatListModule,
     MatTooltipModule,
     MatTabsModule,
+    MatSortModule,
     MatTableModule,
     MatFormFieldModule,
     MatDialogModule,
+    MatNativeDateModule,
     SocialLoginModule,
     GoogleSigninButtonModule,
     HttpClientModule,
     GoogleMapsModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    A11yModule,
+    MatPaginatorModule
   ],
   exports: [
     MatSidenavModule,

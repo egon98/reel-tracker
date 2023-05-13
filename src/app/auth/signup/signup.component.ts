@@ -22,7 +22,6 @@ export class SignupComponent implements OnInit{
     this.socialAuthService.authState.subscribe((user) => {
       this.user = user;
       this.loggedIn = (user != null);
-      console.log(this.user);
       if(this.loggedIn) {
         this.ngZone.run(() => this.router.navigate(['/home']))
       }

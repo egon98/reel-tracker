@@ -1,1 +1,41 @@
-<p>dialog works!</p>
+<div class="basic-container p-4 d-flex flex-column align-item-center">
+  <p><strong>Please enter the following data:</strong></p>
+  <mat-form-field>
+    <input matInput placeholder="Fishing spot" [(ngModel)]="fishing_spot" autocomplete="off">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="number" placeholder="Weight of fish caught" [(ngModel)]="fish_weight">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Bait name" [(ngModel)]="bait_name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Date</mat-label>
+    <input matInput
+           readonly
+           [(ngModel)]="date"
+           [matDatepicker]="picker"
+           type="text"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <form (ngSubmit)="uploadImages()" enctype="multipart/form-data">
+    <input class="mb-2" type="file" (change)="onFilesSelected($event)" [(ngModel)]="imageUrls" [ngModelOptions]="{standalone: true}" multiple accept="image/*">
+    <button type="submit">Upload</button>
+  </form>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="closeAndSetData()">Close</button>
+
+    <button mat-button [disabled]="fishing_spot === undefined || fish_weight === undefined || bait_name === undefined || date === undefined"
+            [mat-dialog-close]="{fishing_spot: fishing_spot, fish_weight: fish_weight, bait_name: bait_name, date: date}"
+            cdkTrapFocus
+            [cdkTrapFocusAutoCapture]="true">Ok</button>
+
+  </div>
+</div>
